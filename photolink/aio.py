@@ -62,4 +62,4 @@ class PhotoLink:
                 else:
                     raise UnexpectedUploadError(errors['UNEXPECTED_ERROR'])
             else:
-                return dict(message="Fayl muvaffaqiyatli yuklandi.", file_url=response['file_url'])
+                return dict(message="File uploaded successfully.", file_url=response['file_url'])

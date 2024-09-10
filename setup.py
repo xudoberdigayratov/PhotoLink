@@ -14,13 +14,13 @@ try:
 except ImportError:
     from distutils.core import setup
 
-version = '0.0.1'
+version = '0.0.5'
 
 with open('README.md') as f:
     long_description = f.read()
 
 setup(
-    name='PhotoLink',
+    name='photolink',
     version=version,
 
     author="Xudoberdi G'ayratov",
@@ -32,12 +32,10 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
 
-    download_url='https://github.com/xudoberdigayratov/PhotoLink/archive/v{}.zip'.format(
-        version
-    ),
+    download_url='https://github.com/xudoberdigayratov/PhotoLink.git',
     license='MIT',
 
-    packages=['PhotoLink', 'photolink'],
+    packages=['photolink'],
     install_requires=['requests'],
     extras_require={
         'aio': ['httpx'],

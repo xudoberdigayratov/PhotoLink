@@ -6,10 +6,10 @@ mime_types = {
 }
 
 errors = {
-    "InvalidClientID": "Iltimos, to'g'ri client ID kiriting.",
-    "INVALID_CONTENT_TYPE": "Fayl turi qo'llab-quvvatlanmaydi. Iltimos, rasm formatini tekshirib ko'ring.",
-    "FILE_SIZE_ERROR": "Fayl hajmi 1 MB dan katta bo'lmasligi kerak. Iltimos, kichikroq fayl yuklang.",
-    "FileNotFoundError": "Fayl topilmadi. Iltimos, fayl mavjudligini tekshirib ko'ring.",
-    "NoCredentialsError": "Ma'lumotlar bazasi uchun credential mavjud emas. Iltimos, credentiallarni to'g'ri sozlang.",
-    "UNEXPECTED_ERROR": "Kutilmagan xato yuz berdi. Iltimos, tizim adminiga murojaat qiling.",
+    "InvalidClientID": "Please enter a valid client ID.",
+    "INVALID_CONTENT_TYPE": "The file type is not supported. Please check the image format.",
+    "FILE_SIZE_ERROR": "The file size should not be larger than 1 MB. Please upload a smaller file.",
+    "FileNotFoundError": "File not found. Please check if the file exists.",
+    "NoCredentialsError": "The credential for the database does not exist. Please set the credentials correctly.",
+    "UNEXPECTED_ERROR": "An unexpected error occurred. Please contact your system admin.\nMail: gayratov@xudoberdi.uz",
 }

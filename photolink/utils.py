@@ -6,7 +6,7 @@ mime_types = {
 }
 
 errors = {
-    "InvalidClientID": "Please enter a valid client ID.",
+    "InvalidClientID": "\"Invalid Client ID\"\n\nPlease provide a valid client ID. If you don't have one, create a new client ID by visiting photolink.uz.",
     "INVALID_CONTENT_TYPE": "The file type is not supported. Please check the image format.",
     "FILE_SIZE_ERROR": "The file size should not be larger than 1 MB. Please upload a smaller file.",
     "FileNotFoundError": "File not found. Please check if the file exists.",

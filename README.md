@@ -2,7 +2,6 @@
 
 Python PhotoLink API wrapper
 
-[//]: # (- [Documentation]&#40;https://python-telegraph.readthedocs.io/en/latest/&#41;)
 
 ```bash
 $ python3 -m pip install photolink
@@ -14,7 +13,7 @@ $ python3 -m pip install 'photolink[aio]'
 ```python
 from photolink import PhotoLink
 
-photolink = PhotoLink()
+photolink = PhotoLink(client_id='lSeA0sSUgd')
 upload = photolink.upload_image(file_path='doppi.png')
 
 print(upload)
@@ -27,8 +26,8 @@ import asyncio
 from photolink.aio import PhotoLink
 
 async def main():
-    photolink = PhotoLink()
-    print(await photolink(file_path='doppi.png'))
+    photolink = PhotoLink(client_id='lSeA0sSUgd')
+    print(await photolink.upload_image(file_path='doppi.png'))
 
 
 asyncio.run(main())

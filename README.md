@@ -2,7 +2,7 @@
 
 Python PhotoLink API wrapper
 
-- [Documentation](https://photolink.uz;
+- [Documentation](https://photolink.uz);
 
 ```bash
 $ python3 -m pip install photolink

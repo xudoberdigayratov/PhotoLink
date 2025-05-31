@@ -12,4 +12,6 @@ errors = {
     "FileNotFoundError": "File not found. Please check if the file exists.",
     "NoCredentialsError": "The credential for the database does not exist. Please set the credentials correctly.",
     "UNEXPECTED_ERROR": "An unexpected error occurred. Please contact your system admin.\nMail: gayratov@xudoberdi.uz",
+    "InvalidUrlException": "The provided URL is invalid. Please ensure the URL is correct and try again.",
+
 }

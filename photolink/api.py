@@ -63,3 +63,44 @@ class PhotoLink:
                     raise UnexpectedUploadError(errors['UNEXPECTED_ERROR'])
             else:
                 return dict(message="File uploaded successfully.", file_url=response['file_url'])
+
+    def upload_image_url(self, url):
+        """ Accepts an uploaded file and only accepts image files (JPEG, PNG, WEBP).
+        :param url: url to the image file
+        """
+        if not self.client_id:
+            raise InvalidClientIdException(errors['InvalidClientID'])
+
+        file_info = self.session.get(url)
+
+        if file_info.status_code != 200:
+            raise FileTooLargeException(errors['FileNotFoundError'])
+        content = file_info.content
+        if len(content) > 1024 * 1024 * 1024:
+            raise FileTooLargeException(errors['FILE_SIZE_ERROR'])
+
+        content_type = file_info.headers.get("Content-Type", "")
+        if content_type is None:
+            raise InvalidFileTypeException(errors['INVALID_CONTENT_TYPE'])
+
+        response = (self.session.post(
+            "https://api.{}/upload-image-from-url/".format(self.domain),
+            data={'client_id': self.client_id, 'url': url},
+        )).json()
+        if response['error']:
+            if response['error_type'] == 'InvalidClientID':
+                raise InvalidClientIdException(errors['InvalidClientID'])
+            elif response['error_type'] == 'INVALID_CONTENT_TYPE':
+                raise InvalidFileTypeException(errors['INVALID_CONTENT_TYPE'])
+            elif response['error_type'] == 'FILE_SIZE_ERROR':
+                raise FileTooLargeException(errors['FILE_SIZE_ERROR'])
+            elif response['error_type'] == 'FileNotFoundError':
+                raise FileNotFoundException(errors['FileNotFoundError'])
+            elif response['error_type'] == 'NoCredentialsError':
+                raise InvalidClientIdException(errors['NoCredentialsError'])
+            elif response['error_type'] == 'UNEXPECTED_ERROR':
+                raise UnexpectedUploadError(errors['UNEXPECTED_ERROR'])
+            else:
+                raise UnexpectedUploadError(errors['UNEXPECTED_ERROR'])
+        else:
+            return dict(message="File uploaded successfully.", file_url=response['file_url'])

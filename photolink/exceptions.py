@@ -32,3 +32,9 @@ class UnexpectedUploadError(PhotoLinkException):
     """Yuklashda kutilmagan xatolik yuzaga kelganda chiqariladi."""
 
     pass
+
+
+class InvalidUrlException(PhotoLinkException):
+    """Url xato kiritilganda chiqariladi."""
+
+    pass

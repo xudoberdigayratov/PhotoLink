@@ -1,5 +1,6 @@
 import os
 
+import filetype
 import requests
 
 from .exceptions import *
@@ -81,6 +82,9 @@ class PhotoLink:
 
         content_type = file_info.headers.get("Content-Type", "")
         if content_type is None:
+            raise InvalidFileTypeException(errors['INVALID_CONTENT_TYPE'])
+        kind = filetype.guess(content)
+        if not kind or kind.mime not in mime_types.values():
             raise InvalidFileTypeException(errors['INVALID_CONTENT_TYPE'])
 
         response = (self.session.post(

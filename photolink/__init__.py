@@ -9,6 +9,6 @@ Copyright (C) 2024
 """
 
 __author__ = 'MrGayratov'
-__version__ = '1.0.2'
+__version__ = '1.0.3'
 
 from .api import PhotoLink

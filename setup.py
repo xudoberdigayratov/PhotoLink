@@ -14,7 +14,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-version = '1.0.2'
+version = '1.0.3'
 
 with open('README.md') as f:
     long_description = f.read()
@@ -36,9 +36,9 @@ setup(
     license='MIT',
 
     packages=['photolink'],
-    install_requires=['requests'],
+    install_requires=['requests', 'filetype'],
     extras_require={
-        'aio': ['httpx'],
+        'aio': ['httpx', 'filetype'],
     },
 
     classifiers=[
